@@ -1,0 +1,27 @@
+<ng-container>
+    <form (submit)="onSubmit()" #offerForm = "ngForm">
+        <mat-form-field>
+          <input matInput placeholder="Title" name="title" [(ngModel)]="offerData.title" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Description" name="description" [(ngModel)]="offerData.description" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Points" name="points" [(ngModel)]="offerData.points" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Business Id" name="businessId" [(ngModel)]="offerData.businessId" required>
+        </mat-form-field>
+        <br>
+      
+          <button mat-raised-button color="primary">Update</button>&nbsp;
+          <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+      
+        <!-- <ng-template #elseTemplate>
+            <button mat-raised-button color="primary">Add</button>
+        </ng-template> -->
+      </form>
+</ng-container>

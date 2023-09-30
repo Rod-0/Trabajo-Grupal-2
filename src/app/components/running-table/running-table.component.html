@@ -1,0 +1,86 @@
+<ng-container *ngIf="isEditMode">
+    <form (submit)="onSubmit()" #offerForm = "ngForm">
+        <mat-form-field>
+          <input matInput placeholder="Title" name="title" [(ngModel)]="offerData.title" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Description" name="description" [(ngModel)]="offerData.description" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Points" name="points" [(ngModel)]="offerData.points" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Business Id" name="businessId" [(ngModel)]="offerData.businessId" required>
+        </mat-form-field>
+        <br>
+      
+          <button mat-raised-button color="primary">Update</button>&nbsp;
+          <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+      
+        <!-- <ng-template #elseTemplate>
+            <button mat-raised-button color="primary">Add</button>
+        </ng-template> -->
+      </form>
+</ng-container>
+    <button mat-raised-button color="primary" (click)="new()">New Offer</button>&nbsp;
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" mat-sort>
+    
+    
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+    
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+    
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td mat-cell *matCellDef="let element">{{element.description}}</td>
+          </ng-container>
+    
+          <!-- Points Column -->
+          <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>
+            <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+          </ng-container>
+    
+          <!-- BusinessId Column -->
+          <ng-container matColumnDef="businessId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Business ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.businessId}} </td>
+          </ng-container>
+    
+          <!--Actions Column-->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="editItem(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn"  (click)="deleteItem(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+    
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                       showFirstLastButtons
+                       aria-label="Select page of list of offers">
+        </mat-paginator>
+    </div>
+    

@@ -1,0 +1,18 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "title": "Pintura Nueva",
+      "description": "Una buena manera de pintar",
+      "points": "50",
+      "businessId": "1"
+    },
+    {
+      "id": 2,
+      "title": "Pintura Maestraa",
+      "description": "Una excelente pintura",
+      "points": "80",
+      "businessId": "3"
+    }
+  ]
+}
